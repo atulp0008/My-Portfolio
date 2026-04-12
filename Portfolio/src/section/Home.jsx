@@ -2,15 +2,17 @@ import { useMemo } from "react";
 import ParticleBackground from "../components/ParticleBackground";
 import { motion } from "framer-motion";
 import React from "react";
-import avatar from "../assests/avatar2.png"
+import avatar from "../assests/avator1.png";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
-const socials=[
+const socials = [
   {
-    Icon: FaLinkedinIn,label: "LinkedIn" ,href: "https://www.linkedin.com/in/atul-patel-34a699297/"
+    Icon: FaLinkedinIn,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/atul-patel-34a699297/",
   },
-  { Icon: FaGithub,label: "Github" ,href: "https://github.com/atulp0008"}
-]
+  { Icon: FaGithub, label: "Github", href: "https://github.com/atulp0008" },
+];
 
 export default function Home() {
   const roles = useMemo(
@@ -70,7 +72,7 @@ export default function Home() {
       </div>
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-          <div className="w-full lg:pr-24 mx-auto max-w-[40rem]">
+          <div className="w-full lg:pr-24 mx-auto max-w-[40rem] lg:ml-20">
             <motion.div
               className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-wide min-h-[1.6rem]"
               initial={{ opacity: 0, y: 12 }}
@@ -120,24 +122,44 @@ export default function Home() {
                 My Resume
               </a>
             </motion.div>
-            <div  className="mt-10 flex gap-5 text-2xl md:text-3xl justify-center lg:justify-start">
-              {socials.map(({Icon,label,href})=>(
-                <motion.a 
-                href={href}
-                key={label}
-                target='_blank'
-                aria-label={label}
-                rel='noopener noreferrer'
-                className=" transform hover:scale-130 transition-all duration-300">
-                    <Icon/>
+            <div className="mt-10 flex gap-5 text-2xl md:text-3xl justify-center lg:justify-start">
+              {socials.map(({ Icon, label, href }) => (
+                <motion.a
+                  href={href}
+                  key={label}
+                  target="_blank"
+                  aria-label={label}
+                  rel="noopener noreferrer"
+                  className=" transform hover:scale-130 transition-all duration-300"
+                >
+                  <Icon />
                 </motion.a>
               ))}
-
             </div>
           </div>
         </div>
-        <div>
-          <motion.img src={avatar} alt="Atul Patel"/>
+        <div className="relative hidden lg:block">
+          <div
+          className="absolute top-1/2 -translate-y-1/2  pointer-events-none"
+          style={{
+            right:"80px" ,width:"min(22vw,410vw)",height:"min(38vw,760px)", borderRadius:"50%",
+            filter:"blur(38px)", opacity:0.32,
+            background:"conic-gradient(from 0deg , #8e5cf1,#5b2ca0,#1f1147,#8e5cf1)"
+
+          }}/>
+          <motion.img
+            src={avatar}
+            className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
+            style={{
+              right: "0px",
+              width: "min(45vw , 780px) ",
+              maxHeight: "90vh",
+            }}
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            alt="Atul Patel"
+          />
         </div>
       </div>
     </section>
