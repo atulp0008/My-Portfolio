@@ -35,7 +35,7 @@ export default function Projects() {
   };
 
   return (
-    <div
+    <div id="project"
       className={`w-full h-[100vh] flex items-center justify-center text-white relative overflow-hidden ${projects[index].background}`}
     >
       <h1 className="absolute top-8 text-3xl md:text-4xl font-semibold text-white">
